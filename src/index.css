@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background: #080a12;
+  color: #edf2ff;
+  overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::selection {
+  background: rgba(255, 23, 68, 0.36);
+  color: #ffffff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.22);
+  border: 2px solid #080a12;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080a12;
+}
+
+.glass-panel {
+  position: relative;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.028)),
+    linear-gradient(135deg, rgba(20, 20, 24, 0.9), rgba(8, 8, 10, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 18px 54px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(22px);
+}
+
+.glass-panel::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent 34%, rgba(255, 23, 68, 0.18));
+  opacity: 0.45;
+  mask: linear-gradient(#000, transparent 54%);
+}
+
+.cyber-grid {
+  background-image:
+    linear-gradient(rgba(255, 23, 68, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 23, 68, 0.04) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.neon-text {
+  text-shadow: 0 0 28px rgba(255, 23, 68, 0.52);
+}
+
+.scanline {
+  background: linear-gradient(180deg, transparent, rgba(255, 23, 68, 0.1), transparent);
+  height: 120px;
+  animation: scan 8s linear infinite;
+}
+
+@keyframes scan {
+  from {
+    transform: translateY(-140px);
+  }
+  to {
+    transform: translateY(100vh);
+  }
+}
+
+.focus-ring {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus-ring:focus-visible {
+  outline-color: rgba(56, 189, 248, 0.9);
+}
