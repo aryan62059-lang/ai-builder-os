@@ -37,7 +37,7 @@ function addActivity(state, xp, label, minutes = 0) {
   const event =
     xp > 0
       ? {
-          id: crypto.randomUUID(),
+          id: `${Date.now()}-${Math.random()}`,
           type: "xp",
           xp,
           label,
@@ -133,7 +133,7 @@ function reducer(state, action) {
         currentDay: Math.min(90, state.currentDay + 1),
         streak: state.streak + 1,
         lastEvent: {
-          id: crypto.randomUUID(),
+          id: `${Date.now()}-${Math.random()}`,
           type: "streak",
           xp: 0,
           label: "Day advanced",
@@ -182,11 +182,12 @@ function reducer(state, action) {
         ...state,
         sessions: [
           {
-            id: crypto.randomUUID(),
+            id: `${Date.now()}-${Math.random()}`,
             label: action.label || "Focus session",
             minutes,
             createdAt: new Date().toISOString(),
           },
+          
           ...state.sessions,
         ].slice(0, 20),
         tracker: {
